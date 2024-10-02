@@ -45,7 +45,7 @@ public class InimigosV2 {
         dificuldadeChica = 0;
         dificuldadeFreddy = 0;
         dificuldadeFoxy = 0;
-
+        
         // Agendar aumentos de dificuldade de acordo com a noite atual e a hora de jogo
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
