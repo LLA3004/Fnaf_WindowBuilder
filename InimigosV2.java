@@ -40,7 +40,7 @@ public class InimigosV2 {
     }
 
     private void iniciarDificuldades() {
-        // Instancia as variaveis de dificuldades dos animatrônicos
+        // Instancia as variáveis de dificuldades dos animatrônicos
         dificuldadeBonnie = 0;
         dificuldadeChica = 0;
         dificuldadeFreddy = 0;
@@ -52,88 +52,68 @@ public class InimigosV2 {
             public void run() {
                 horas = jogo.getHoraAtual(); // Atualizar a hora atual do jogo
 
-                switch (noite) {
-                    case 1 -> {
-                        switch (horas) {
-                            case 2 -> dificuldadeBonnie = 1;
-                            case 3 -> {
-                                dificuldadeBonnie = 3;
-                                dificuldadeChica = 1;
-                                dificuldadeFoxy = 1;
-                            }
-                            case 4 -> {
-                                dificuldadeChica = 2;
-                                dificuldadeFoxy = 2;
-                            }
-                        }
+                if (noite == 1) {
+                    if (horas == 2) {
+                        dificuldadeBonnie = 1;
+                    } else if (horas == 3) {
+                        dificuldadeBonnie = 3;
+                        dificuldadeChica = 1;
+                        dificuldadeFoxy = 1;
+                    } else if (horas == 4) {
+                        dificuldadeChica = 2;
+                        dificuldadeFoxy = 2;
                     }
-                    case 2 -> {
-                        if (horas <= 1) {
-                            dificuldadeBonnie = 3;
-                            dificuldadeChica = 1;
-                            dificuldadeFoxy = 1;
-                        } else {
-                            switch (horas) {
-                                case 2 -> dificuldadeBonnie = 4;
-                                case 3 -> {
-                                    dificuldadeBonnie = 5;
-                                    dificuldadeChica = 2;
-                                    dificuldadeFoxy = 2;
-                                }
-                                case 4 -> {
-                                    dificuldadeBonnie = 6;
-                                    dificuldadeChica = 3;
-                                    dificuldadeFoxy = 3;
-                                }
-                            }
-                        }
+                } else if (noite == 2) {
+                    if (horas <= 1) {
+                        dificuldadeBonnie = 3;
+                        dificuldadeChica = 1;
+                        dificuldadeFoxy = 1;
+                    } else if (horas == 2) {
+                        dificuldadeBonnie = 4;
+                    } else if (horas == 3) {
+                        dificuldadeBonnie = 5;
+                        dificuldadeChica = 2;
+                        dificuldadeFoxy = 2;
+                    } else if (horas == 4) {
+                        dificuldadeBonnie = 6;
+                        dificuldadeChica = 3;
+                        dificuldadeFoxy = 3;
                     }
-                    case 3 -> {
-                        switch (horas) {
-                            case 0 -> {
-                                dificuldadeChica = 5;
-                                dificuldadeBonnie = 0;
-                                dificuldadeFoxy = 2;
-                                dificuldadeFreddy = 1;
-                            }
-                            case 2 -> dificuldadeBonnie = 1;
-                            case 3 -> {
-                                dificuldadeBonnie = 2;
-                                dificuldadeChica = 6;
-                                dificuldadeFoxy = 3;
-                            }
-                            case 4 -> {
-                                dificuldadeBonnie = 3;
-                                dificuldadeChica = 7;
-                                dificuldadeFoxy = 4;
-                            }
-                        }
+                } else if (noite == 3) {
+                    if (horas == 0) {
+                        dificuldadeChica = 5;
+                        dificuldadeBonnie = 0;
+                        dificuldadeFoxy = 2;
+                        dificuldadeFreddy = 1;
+                    } else if (horas == 2) {
+                        dificuldadeBonnie = 1;
+                    } else if (horas == 3) {
+                        dificuldadeBonnie = 2;
+                        dificuldadeChica = 6;
+                        dificuldadeFoxy = 3;
+                    } else if (horas == 4) {
+                        dificuldadeBonnie = 3;
+                        dificuldadeChica = 7;
+                        dificuldadeFoxy = 4;
                     }
-                    case 4 -> {
-                        switch (horas) {
-                            case 0 -> {
-                                dificuldadeBonnie = 2;
-                                dificuldadeChica = 4;
-                                dificuldadeFoxy = 6;
-                                dificuldadeFreddy = 1;
-                            }
-                            case 2 -> {
-                                dificuldadeBonnie = 3;
-                                dificuldadeChica = 4;
-                            }
-                            case 3 -> {
-                                dificuldadeBonnie = 4;
-                                dificuldadeChica = 5;
-                                dificuldadeFoxy = 7;
-                            }
-                            case 4 -> {
-                                dificuldadeBonnie = 5;
-                                dificuldadeChica = 6;
-                                dificuldadeFoxy = 8;
-                            }
-                        }
+                } else if (noite == 4) {
+                    if (horas == 0) {
+                        dificuldadeBonnie = 2;
+                        dificuldadeChica = 4;
+                        dificuldadeFoxy = 6;
+                        dificuldadeFreddy = 1;
+                    } else if (horas == 2) {
+                        dificuldadeBonnie = 3;
+                        dificuldadeChica = 4;
+                    } else if (horas == 3) {
+                        dificuldadeBonnie = 4;
+                        dificuldadeChica = 5;
+                        dificuldadeFoxy = 7;
+                    } else if (horas == 4) {
+                        dificuldadeBonnie = 5;
+                        dificuldadeChica = 6;
+                        dificuldadeFoxy = 8;
                     }
-                    // Implementar condições para outras noites
                 }
             }
         }, 0, 1000); // Atualizar a cada segundo
@@ -179,11 +159,11 @@ public class InimigosV2 {
                     int numeroAleatorio = random.nextInt(20) + 1; // Número aleatório entre 1 e 20
                     int dificuldade = dificuldadeProvider.getDificuldade();
                     if (dificuldade >= numeroAleatorio) {
-                        //ajustar para foxy n ter oportunidade de mov com camera aberta
-                    	if (nome.equals("Foxy") && !jogo.isMonitorAberto()) {
+                        // ajustar para foxy não ter oportunidade de mov com câmera aberta
+                        if (nome.equals("Foxy") && !jogo.isMonitorAberto()) {
                             avancarEstagioFoxy();
                         }
-                        // Lógica de movimento dos animatrônicos, deixar privado antes de Versão final.
+                        // Lógica de movimento dos animatrônicos
                         System.out.println(nome + " se movimentou!");
                     } else {
                         System.out.println(nome + " não se movimentou.");
@@ -194,11 +174,14 @@ public class InimigosV2 {
     }
 
     private void avancarEstagioFoxy() {
-        switch (foxyEstagio) {
-            case NAO_VISIVEL -> foxyEstagio = FoxyEstagio.VISIVEL;
-            case VISIVEL -> foxyEstagio = FoxyEstagio.SAINDO_DA_CAMERA;
-            case SAINDO_DA_CAMERA -> foxyEstagio = FoxyEstagio.NA_FRENTE_DA_CAMERA;
-            case NA_FRENTE_DA_CAMERA -> foxyEstagio = FoxyEstagio.NAO_VISIVEL;
+        if (foxyEstagio == FoxyEstagio.NAO_VISIVEL) {
+            foxyEstagio = FoxyEstagio.VISIVEL;
+        } else if (foxyEstagio == FoxyEstagio.VISIVEL) {
+            foxyEstagio = FoxyEstagio.SAINDO_DA_CAMERA;
+        } else if (foxyEstagio == FoxyEstagio.SAINDO_DA_CAMERA) {
+            foxyEstagio = FoxyEstagio.NA_FRENTE_DA_CAMERA;
+        } else if (foxyEstagio == FoxyEstagio.NA_FRENTE_DA_CAMERA) {
+            foxyEstagio = FoxyEstagio.NAO_VISIVEL;
         }
         System.out.println("Foxy avançou para o estágio: " + foxyEstagio);
     }
