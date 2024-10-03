@@ -52,6 +52,9 @@ public class InimigosV2 {
             public void run() {
                 horas = jogo.getHoraAtual(); // Atualizar a hora atual do jogo
 
+
+
+                //por limitações da versão Java usada, versão com case when será usada em breve
                 if (noite == 1) {
                     if (horas == 2) {
                         dificuldadeBonnie = 1;
