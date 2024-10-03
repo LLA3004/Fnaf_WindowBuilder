@@ -114,6 +114,23 @@ public class InimigosV2 {
                         dificuldadeChica = 6;
                         dificuldadeFoxy = 8;
                     }
+                } else if(noite == 5){
+                    if((horas == 0)){
+                        dificuldadeFreddy = 3;
+                        dificuldadeBonnie = 5;
+                        dificuldadeChica = 7;
+                        dificuldadeFoxy = 5;
+                    } else if(horas == 2){
+                        dificuldadeBonnie = 6;
+                    } else if(horas == 3){
+                        dificuldadeBonnie = 7;
+                        dificuldadeChica = 8;
+                        dificuldadeFoxy = 6;
+                    } else if(horas == 4){
+                        dificuldadeBonnie = 8;
+                        dificuldadeChica = 9;
+                        dificuldadeFoxy = 7; 
+                    }
                 }
             }
         }, 0, 1000); // Atualizar a cada segundo
